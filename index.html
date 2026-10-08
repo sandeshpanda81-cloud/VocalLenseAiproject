@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VocaLens AI — Speech Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">VL</div>
+      <div><strong>VocaLens</strong><span>AI Speech Coach</span></div>
+    </div>
+    <nav>
+      <button class="nav-item active" data-section="dashboard">◉ Dashboard</button>
+      <button class="nav-item" data-section="timeline">◷ Timeline</button>
+      <button class="nav-item" data-section="transcript">▤ Transcript</button>
+      <button class="nav-item" data-section="improve">↗ Improve</button>
+    </nav>
+    <div class="sidebar-card">
+      <span class="mini-label">TRACK C</span>
+      <h3>Contrastive Speech Analytics</h3>
+      <p>Find what went wrong, when it happened, and how to improve.</p>
+    </div>
+    <div class="status"><i></i> Local analytics engine ready</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SPEECH INTELLIGENCE</p>
+        <h1>Speak. Analyze. Improve.</h1>
+        <p class="sub">Temporal flaw grounding with a reproducible speech rubric.</p>
+      </div>
+      <button id="demoBtn" class="ghost-btn">▶ Run Demo</button>
+    </header>
+
+    <section id="uploadPanel" class="upload-panel">
+      <div class="upload-copy">
+        <span class="pill">AI SPEECH ANALYSIS</span>
+        <h2>Upload your speech.</h2>
+        <p>Analyze pace, pauses, filler words, delivery and presentation quality.</p>
+      </div>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="audioFile" accept=".wav,.mp3,.m4a,.ogg,.flac,.aac,audio/*">
+        <div class="upload-icon">↑</div>
+        <strong id="fileName">Drop audio here or click to browse</strong>
+        <span>WAV · MP3 · M4A · OGG · FLAC · up to 50 MB</span>
+      </label>
+      <div class="transcript-wrap">
+        <label for="transcript">Optional transcript <span>recommended for accurate filler/WPM analysis</span></label>
+        <textarea id="transcript" placeholder="Paste your speech transcript here, or leave blank if Faster-Whisper is enabled..."></textarea>
+      </div>
+      <button id="analyzeBtn" class="primary-btn">Analyze Speech <span>→</span></button>
+      <div id="progress" class="progress hidden"><div></div></div>
+      <p id="message" class="message"></p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="section-head">
+        <div><p class="eyebrow">ANALYSIS RESULT</p><h2>Your speaking snapshot</h2></div>
+        <span id="modeBadge" class="pill">LIVE ANALYSIS</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="score-card">
+          <div class="score-ring" id="scoreRing"><span id="overall">--</span><small>/100</small></div>
+          <div><p class="muted">OVERALL PERFORMANCE</p><h3 id="scoreLabel">Waiting for analysis</h3><p id="scoreDescription">Upload a speech to generate your personalized evaluation.</p></div>
+        </div>
+        <div class="stat-card"><span>Duration</span><strong id="duration">--</strong><small>speech length</small></div>
+        <div class="stat-card"><span>Speaking rate</span><strong id="wpm">--</strong><small>words / minute</small></div>
+        <div class="stat-card"><span>Filler words</span><strong id="fillers">--</strong><small>detected occurrences</small></div>
+      </div>
+
+      <div class="content-grid">
+        <div class="panel rubric-panel">
+          <div class="panel-title"><h3>Rubric performance</h3><span>100-point scale</span></div>
+          <canvas id="rubricChart"></canvas>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><h3>AI recommendations</h3><span>actionable</span></div>
+          <div id="recommendations" class="recommendations"></div>
+        </div>
+      </div>
+
+      <div class="panel" id="timelinePanel">
+        <div class="panel-title"><h3>Temporal flaw timeline</h3><span id="flawCount">0 issues</span></div>
+        <div id="timeline" class="timeline"></div>
+      </div>
+
+      <div class="panel" id="transcriptPanel">
+        <div class="panel-title"><h3>Transcript</h3><span id="language">—</span></div>
+        <div id="transcriptView" class="transcript-view"></div>
+      </div>
+
+      <div class="panel improvement-panel">
+        <div>
+          <p class="eyebrow">NEXT ATTEMPT</p>
+          <h3>Turn feedback into progress.</h3>
+          <p class="muted">Run another attempt and compare the score with your previous performance.</p>
+        </div>
+        <div class="attempt-score"><span id="attemptScore">78</span><small>latest score</small></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

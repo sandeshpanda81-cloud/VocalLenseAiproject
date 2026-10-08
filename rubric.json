@@ -1,0 +1,7 @@
+{
+  "Clarity": {"weight": 0.20, "definition": "How understandable and structured the speech is."},
+  "Pace": {"weight": 0.20, "definition": "How close the estimated speaking rate is to a presentation-friendly range."},
+  "Fluency": {"weight": 0.20, "definition": "Control of filler words and hesitation."},
+  "Pauses": {"weight": 0.15, "definition": "Whether silence is controlled and purposeful."},
+  "Delivery": {"weight": 0.25, "definition": "Energy and consistency of vocal delivery."}
+}

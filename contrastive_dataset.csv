@@ -1,0 +1,9 @@
+id,label,transcript,pace,clarity,pauses,filler_words,delivery,notes
+1,ideal,"Good morning everyone. Today I will explain our project clearly and briefly.",steady,high,controlled,low,strong,"Clear opening"
+2,flawed,"Good morning um everyone... uh today I like want to explain our project.",fast,medium,long,high,weak,"Fillers and hesitation"
+3,ideal,"First, we identify the problem. Next, we explain our solution. Finally, we discuss results.",steady,high,controlled,low,strong,"Structured delivery"
+4,flawed,"So basically the problem is, you know, kind of difficult and um we have to, uh, solve it.",slow,medium,long,high,weak,"Filler-heavy delivery"
+5,ideal,"Our system processes the input locally, reducing unnecessary data transfer.",steady,high,controlled,low,strong,"Concise technical statement"
+6,flawed,"Our system um processes the input and... basically... it is, like, local.",uneven,medium,long,high,medium,"Uneven pacing"
+7,ideal,"The experiment achieved an accuracy of eighty-five percent across the test set.",steady,high,controlled,low,strong,"Precise result"
+8,flawed,"The experiment achieved, um, maybe around eighty-five, you know, percent.",uneven,medium,medium,medium,medium,"Uncertain wording"
